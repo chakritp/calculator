@@ -2,6 +2,7 @@ var readout = document.querySelector('#readout');
 var digits = document.querySelectorAll('.digit');
 var operators = document.querySelectorAll('.operator');
 var currentOperator = '';
+var equalsBtn = document.querySelector('#equals');
 
 // for each digit, do a function
 digits.forEach(function(btn) {
@@ -21,5 +22,10 @@ operators.forEach(function(operator) {
     else {
       currentOperator = this.innerText;
     }
+    readout.innerText += currentOperator;
   })
 })
+
+equalsBtn.addEventListener('click', function(){
+  readout.innerText = eval(readout.innerText);
+});
