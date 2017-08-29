@@ -51,7 +51,28 @@ operators.forEach(function(operator) {
       operatorJustClicked = true;
     }
     else{ // operator has already been selected
+      console.log("there is an operator already: " + currentOperator);
+      console.log("firstNumber: " + firstNumber);
+      
+      // first evaluate the numbers
+      secondNumber = readout.innerText;
+      console.log("secondNumber: " + secondNumber);
+      var answer = evaluate(currentOperator, Number(firstNumber), Number(secondNumber));
+      readout.innerText = answer;
+      
+      // store the into the first number
+      firstNumber = answer;
+      
+      // set new operator
+      if(this.innerText === 'x'){
+        currentOperator = '*';
+      }
+      else {
+        currentOperator = this.innerText;
+      }
 
+      // record that operator has just been clicked
+      operatorJustClicked = true;
     }
   })
 })
@@ -70,4 +91,5 @@ clearBtn.addEventListener('click', function() {
   operatorJustClicked = false;
   readout.innerText = '';
 })
+
 // being able to chain operations
