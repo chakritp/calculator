@@ -1,8 +1,10 @@
 var readout = document.querySelector('#readout');
 var digits = document.querySelectorAll('.digit');
 var operators = document.querySelectorAll('.operator');
-var currentOperator = '';
 var equalsBtn = document.querySelector('#equals');
+var clearBtn = document.querySelector('#clear');
+
+var currentOperator = '';
 var firstNumber = 0;
 var secondNumber = 0;
 var operatorJustClicked = false;
@@ -61,4 +63,11 @@ equalsBtn.addEventListener('click', function(){
 });
 
 // a clear button
+clearBtn.addEventListener('click', function() {
+  firstNumber = 0;
+  secondNumber = 0;
+  currentOperator = '';
+  operatorJustClicked = false;
+  readout.innerText = '';
+})
 // being able to chain operations
