@@ -1,6 +1,7 @@
 var readout = document.querySelector('#readout');
 var digits = document.querySelectorAll('.digit');
 var operators = document.querySelectorAll('.operator');
+var decimalBtn = document.querySelector('#decimal');
 var equalsBtn = document.querySelector('#equals');
 var clearBtn = document.querySelector('#clear');
 
@@ -33,6 +34,14 @@ digits.forEach(function(btn) {
     }
     readout.innerText += this.innerText;
   });
+});
+
+decimal.addEventListener('click', function(){
+  if(operatorJustClicked){
+    readout.innerText = ''; // clear the readout when someone just clicked an opreator
+    operatorJustClicked = false;
+  }
+  readout.innerText += this.innerText;
 });
 
 operators.forEach(function(operator) {
