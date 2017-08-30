@@ -7,8 +7,7 @@
   box-sizing: border-box;
   margin: 0 auto;
   margin-top: 200px;
-  font-size: 50px;
-  font-size: 16px;
+  font-size: 0;
 }
 
 #readout {
@@ -22,8 +21,9 @@
 .operator, .digit {
   box-sizing: inherit;
   display: inline-block;
-  width: 119px;
+  width: 24.5%;
   height: 50px;
+  font-size: 16px;
 }
 
 .digit {
@@ -57,7 +57,7 @@
 #clear {
   box-sizing: inherit;
   display: inline-block;
-  width: 372px;
+  width: 73.9%;
   height: 50px;
   background-color: rgb(224, 224, 224);
   border: 1px solid rgb(124, 124, 124);
