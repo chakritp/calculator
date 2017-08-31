@@ -4,6 +4,7 @@ var operators = document.querySelectorAll('.operator');
 var decimalBtn = document.querySelector('#decimal');
 var equalsBtn = document.querySelector('#equals');
 var clearBtn = document.querySelector('#clear');
+var currentOperatorDiv = document.querySelector('#currentOperator');
 
 var currentOperator = '';
 var firstNumber = 0;
@@ -54,6 +55,8 @@ decimal.addEventListener('click', function(){
 
 operators.forEach(function(operator) {
   operator.addEventListener('click', function(){
+
+
     if(!currentOperator){
       firstNumber = readout.innerText;
       
