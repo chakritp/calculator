@@ -6,6 +6,8 @@ var equalsBtn = document.querySelector('#equals');
 var clearBtn = document.querySelector('#clear');
 var currentOperatorDiv = document.querySelector('#currentOperator');
 
+var $allButtons = $('#buttons > *')
+
 var currentOperator = '';
 var firstNumber = 0;
 var secondNumber = 0;
@@ -113,4 +115,12 @@ clearBtn.addEventListener('click', function() {
   pageJustLoaded = true;
 })
 
-// being able to chain operations
+// use jquery to add event listeners to change the color of button on keydown
+$allButtons.on('mousedown', function() {
+  $(this).css('opacity', 0.7)
+})
+
+$allButtons.on('mouseup', function() {
+  $(this).css('opacity', 1)
+})
+
