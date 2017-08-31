@@ -17,8 +17,9 @@
 #buttons > * {
   text-align: center;
   box-sizing: border-box;
-  padding-top: 6%;
+  padding-top: 4%;
   height: 80px;
+  font-size: 30px;
 }
 
 #readout {
@@ -69,7 +70,6 @@
 }
 
 #clear {
-  box-sizing: border-box;
   display: inline-block;
   width: 75%;
   background-color: rgb(224, 224, 224);
