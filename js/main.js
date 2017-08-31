@@ -9,6 +9,7 @@ var currentOperator = '';
 var firstNumber = 0;
 var secondNumber = 0;
 var operatorJustClicked = false;
+var pageJustLoaded = true; // used to remove the zero in front
 
 function evaluate(operation, firstNumber, secondNumber) {
   switch(operation){
@@ -32,7 +33,14 @@ digits.forEach(function(btn) {
       readout.innerText = ''; // clear the readout when someone just clicked an opreator
       operatorJustClicked = false;
     }
-    readout.innerText += this.innerText;
+
+    if(pageJustLoaded){
+      readout.innerText = this.innerText;
+      pageJustLoaded = false;
+    }
+    else {
+      readout.innerText += this.innerText;
+    }
   });
 });
 
@@ -98,7 +106,8 @@ clearBtn.addEventListener('click', function() {
   secondNumber = 0;
   currentOperator = '';
   operatorJustClicked = false;
-  readout.innerText = '';
+  readout.innerText = '0';
+  pageJustLoaded = true;
 })
 
 // being able to chain operations
