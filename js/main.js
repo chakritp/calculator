@@ -7,6 +7,7 @@ var clearBtn = document.querySelector('#clear');
 var currentOperatorDiv = document.querySelector('#currentOperator');
 
 var $allButtons = $('#buttons > *')
+var $currentOperatorField = $('#currentOperator')
 
 var currentOperator = '';
 var firstNumber = 0;
@@ -25,6 +26,10 @@ function evaluate(operation, firstNumber, secondNumber) {
     case '/':
       return firstNumber / secondNumber;
   }
+}
+
+function formattedOperator(operator) {
+  return operator !== '*' ? operator : 'x'
 }
 
 // for each digit, do a function
@@ -57,8 +62,6 @@ decimal.addEventListener('click', function(){
 
 operators.forEach(function(operator) {
   operator.addEventListener('click', function(){
-
-
     if(!currentOperator){
       firstNumber = readout.innerText;
       
@@ -96,11 +99,15 @@ operators.forEach(function(operator) {
       // record that operator has just been clicked
       operatorJustClicked = true;
     }
+
+    // set current operator as text in DOM
+    $currentOperatorField.text(formattedOperator(currentOperator))
   })
 })
 
 equalsBtn.addEventListener('click', function(){
   // using evaluate() instead of eval()
+  $currentOperatorField.text('')
   secondNumber = readout.innerText;
   readout.innerText = evaluate(currentOperator, Number(firstNumber), Number(secondNumber));
 });
@@ -113,6 +120,7 @@ clearBtn.addEventListener('click', function() {
   operatorJustClicked = false;
   readout.innerText = '0';
   pageJustLoaded = true;
+  $currentOperatorField.text('')
 })
 
 // use jquery to add event listeners to change the color of button on keydown
