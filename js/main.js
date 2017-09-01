@@ -124,3 +124,10 @@ $allButtons.on('mouseup', function() {
   $(this).css('opacity', 1)
 })
 
+// use jQuery to make text of readout flicker when clicking on operators and c
+$('.operator, #clear').on('click', function() {
+  $('#readout').css('color', '#292929')
+  setTimeout(function(){ $('#readout').css('color', '#FFFFFF') }, 100);
+  
+})
+
